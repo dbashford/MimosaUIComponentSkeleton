@@ -1,4 +1,2 @@
-MimosaWebComponentSkeleton
-==========================
-
-A reusable skeleton for developing web components with Mimosa
+A Skeleton for building UI Components with Mimosa
+==================
