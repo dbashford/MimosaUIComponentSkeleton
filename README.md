@@ -1,4 +1,4 @@
-A Skeleton for building UI Components with Mimosa
+A Mimosa Skeleton for building UI Components
 ==================
 
 ##Getting Started
