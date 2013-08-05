@@ -1,4 +1,4 @@
-define ['jquery', 'libname/widget'], ($, Widget) ->
+define ['jquery', 'lib/widget'], ($, Widget) ->
 
   beforeEach ->
     $('body').append("<div id='widget-div'></div>")

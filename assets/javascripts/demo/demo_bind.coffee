@@ -1,5 +1,5 @@
 define ['jquery',
-  'libname/widget'],
+  'lib/widget'],
 
 ($, Widget) ->
 

@@ -1,6 +1,7 @@
 window.MIMOSA_TEST_REQUIRE_CONFIG = {
   "paths": {
-    "jquery": "vendor/jquery/jquery"
+    "jquery": "vendor/jquery/jquery",
+    "lib": "libname"
   },
   "baseUrl": "/js"
 };
