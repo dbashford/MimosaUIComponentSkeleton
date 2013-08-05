@@ -3,8 +3,10 @@ exports.config =
   testemRequire:
     mochaSetup:
       globals:["$"]
+
+  # Change these settings to correspond with your component
   libraryPackage:
-    globalName: "GeoHashHeatMap"
-    name: "berico.geoHashHeatMap.js"
-    main: "berico/geohash_widget"
-    removeDependencies: ["leaflet", "leaflet_heatmap","leaflet_draw"]
+    globalName: "MyLib"
+    name: "mylib.js"
+    main: "lib/widget"
+    removeDependencies: ["jquery"]
