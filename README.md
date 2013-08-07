@@ -16,5 +16,7 @@ A Mimosa Skeleton for building UI Components
 
 ##To package
 
-`mimosa build -omp` will run the library package component which will generate a `build` directory containing several versions of the component.
+* `mimosa build -omp` will run the library package component which will generate a `build` directory containing several versions of the component.
+* `mimosa build -omp -P bundle` will actually build the entire project to the `build` directory, in addition to creating the minified versions of the component, which is useful if the component artifacts include something other than just the bundled JavaScript.
+
 
