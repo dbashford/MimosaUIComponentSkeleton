@@ -1,9 +1,22 @@
 {
   "name": "libname",
   "version": "0.1.0",
-  "dependencies": {
+  "devDependencies": {
     "jquery":"latest",
     "requirejs":"latest"
   },
-  "main":["build"]
+  "main":["build/noShimNoDependencies/mylib.js"],
+  "ignore": [
+    "server.coffee",
+    "views",
+    "test",
+    "assets",
+    "node_modules",
+    "routes",
+    "makefile",
+    "mimosa-config.coffee",
+    "mimosa-config-commented.coffee",
+    "bower.json",
+    ".bowerrc"
+  ]
 }
