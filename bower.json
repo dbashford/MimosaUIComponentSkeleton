@@ -16,7 +16,6 @@
     "makefile",
     "mimosa-config.coffee",
     "mimosa-config-commented.coffee",
-    "bower.json",
     ".bowerrc"
   ]
 }
