@@ -18,7 +18,7 @@
     "jade": "0.30.0"
   },
   "devDependencies": {
-    "mimosa-bower":"0.7.1",
+    "mimosa-bower":"0.9.2",
     "mimosa-require-library-package":"0.4.1",
     "mimosa-testem-require":"0.6.1"
   }
