@@ -56,7 +56,7 @@ exports.config = {
   # compilers:
     # extensionOverrides:       # A list of extension overrides, format is:
                                 # [compilerName]:[arrayOfExtensions], see
-                                # http://mimosajs.com/compilers.html for list of compiler names
+                                # http://mimosa.io/compilers.html for list of compiler names
       # coffee: ["coff"]        # This is an example override, this is not a default, must be
                                 # array of strings
 
