@@ -1,5 +1,6 @@
 exports.config =
-  modules: ['lint', 'server', 'require', 'minify', 'live-reload', 'testem-require', 'require-library-package', 'bower']
+  modules: ['jshint', 'csslint', 'server', 'require', 'minify',
+    'live-reload', 'testem-require', 'require-library-package', 'bower']
 
   testemRequire:
     mochaSetup:
