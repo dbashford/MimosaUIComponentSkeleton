@@ -1,13 +1,5 @@
-# THE FOLLOWING IS A COMMENTED VERSION OF THE mimosa-config.coffee WITH
-# ALL OF THE MOST RECENT DEFAULTS. THIS FILE IS MEANT FOR REFERENCE ONLY.
-
-# All of the below are mimosa defaults and only need to be uncommented in the event you want
-# to override them.
-#
-# IMPORTANT: Be sure to comment out all of the nodes from the base to the option you want to
-# override. If you want to turn change the source directory you would need to uncomment watch
-# and sourceDir. Also be sure to respect coffeescript indentation rules.  2 spaces per level
-# please!
+# The following is a commented version of the mimosa-config with all of
+# the defaults listed. This file is meant for reference only.
 
 exports.config = {
 
@@ -15,12 +7,11 @@ exports.config = {
   # requiredMimosaVersion:null # The Mimosa version that must be installed to use the project.
 
   ###
-  The list of Mimosa modules to use for this application. The defaults (jshint, csslint, server,
-  require, minify, live-reload, bower) come bundled with Mimosa and do not need to be installed.
-  The 'mimosa-' that preceeds all Mimosa module names is assumed, however you can use it if you
-  want. If a module is listed here that Mimosa is unaware of, Mimosa will attempt to install it.
+  The list of Mimosa modules to use for this application. The defaults come bundled with Mimosa
+  and do not need to be installed. If a module is listed here that Mimosa is unaware of, Mimosa
+  will attempt to install it.
   ###
-  # modules: ['jshint', 'csslint', 'server', 'require', 'minify', 'live-reload', 'bower']
+  modules: ["server","minify-js","minify-css","jshint","csslint","live-reload","require","copy","bower","coffeescript","require-library-package","stylus","testem-require"]
 
   # watch:
     # sourceDir: "assets"                # directory location of web assets, can be relative to
@@ -57,67 +48,6 @@ exports.config = {
                                          # stylesheet assets. Unix style slashes please.
 	
 
-  # compilers:
-    # extensionOverrides:       # A list of extension overrides, format is:
-                                # [compilerName]:[arrayOfExtensions], see
-                                # http://mimosa.io/compilers.html for list of compiler names
-      # coffee: ["coff"]        # This is an example override, this is not a default, must be
-                                # array of strings
-    # libs: {}                  # If Mimosa contains a version of a compiler that your code is
-                                # not compatible with, use this setting to adjust to the right
-                                # version. The key to the libs object is the name of the
-                                # compiler and the value is a nodejs require call to pull the
-                                # library in.  Ex: libs: less: require('less'). You will need
-                                # to have the version of the compiler you need installed in
-                                # your project. This is the only means to use node-sass as
-                                # Mimosa does not come bundled with it.
-
-  # coffeescript:               # config settings for coffeescript
-    # sourceMap:true            # whether to generate source during "mimosa watch".
-                                # Source maps are not generated during "mimosa build"
-                                # regardless of setting.
-    # sourceMapDynamic: true    # Whether or not to inline the source maps, this adds base64
-                                # encoded source maps to the compiled file rather than write
-                                # an extra map file.
-    # sourceMapExclude: [/\/specs?\//, /_spec.js$/] # files to exclude from source map generation
-    # bare:true                 # whether or not to include the top level wrapper around
-                                # each compiled coffeescript file. Defaults to not wrapping
-                                # as wrapping with define/require is assumed.
-
-  # iced:                       # config settings for iced coffeescript
-    # sourceMap:true            # whether to generate source during "mimosa watch".
-                                # Source maps are not generated during "mimosa build"
-                                # regardless of setting.
-    # sourceMapDynamic: true    # Whether or not to inline the source maps, this adds base64
-                                # encoded source maps to the compiled file rather than write
-                                # an extra map file.
-    # sourceMapExclude: [/\/specs?\//, /_spec.js$/] # files to exclude from source map generation
-    # bare:true                 # whether or not to include the top level wrapper around each
-                                # compiled iced file. Defaults to not wrapping as wrapping with
-                                # define/require is assumed.
-    # runtime:"none"            # No runtime boilerplate is included
-
-  # typescript:                 # config settings for typescript
-    # module: null              # how compiled tyepscript is wrapped, defaults to no wrapping,
-                                # can be "amd" or "commonjs"
-
-  # coco:                       # config settings for coco
-    # bare:true                 # whether or not to include the top level wrapper around
-                                # each compiled coco file. Defaults to not wrapping
-                                # as wrapping with define/require is assumed.
-
-  # livescript:                 # config settings for livescript
-    # bare:true                 # whether or not to include the top level wrapper around
-                                # each compiled coffeescript file. Defaults to not wrapping
-                                # as wrapping with define/require is assumed.
-
-  # stylus:                     # config settings for stylus
-    # use:['nib']               # names of libraries to use, should match the npm name for
-                                # the desired libraries
-    # import:['nib']            # Files to import for compilation
-    # define: {}                # An object containing stylus variable defines
-    # includes: []              # Files to include for compilation
-
   # template:                         # overall template object can be set to null if no
                                       # templates being used
     # nameTransform: "fileName"       # means by which Mimosa creates the name for each
@@ -132,17 +62,14 @@ exports.config = {
     # commonLibPath: null             # Valid when wrapType is 'common'. The path to the
                                       # client library. Some libraries do not have clients
                                       # therefore this is not strictly required when choosing
-                                      # the common wrapType.s
+                                      # the common wrapType.
     # outputFileName: "javascripts/templates"  # the file all templates are compiled into,
                                                # is relative to watch.sourceDir.
 
     # outputFileName:                 # outputFileName Alternate Config 1
       # hogan:"hogans"                # Optionally outputFileName can be provided an object of
-      # jade:"jades"                  # file extension to file name in the event you are using
-                                      # multiple templating libraries. The file extension must
-                                      # match one of the default compiler extensions or one of
-                                      # the extensions configured for a compiler in the
-                                      # compilers.extensionOverrides section above.
+      # jade:"jades"                  # compiler name to file name in the event you are using
+                                      # multiple templating libraries.
 
     # output: [{                      # output Alternate Config 2
     #   folders:[""]                  # Use output instead of outputFileName if you want
@@ -157,23 +84,7 @@ exports.config = {
                                       # default file name is assumed. An output name must be
                                       # provided for each output entry, and the names
                                       # must be unique.
-
-    # handlebars:                     # handlebars specific configuration
-      # helpers:["app/template/handlebars-helpers"]  # the paths from watch.javascriptDir to
-                                      # the files containing handlebars helper/partial
-                                      # registrations
-      # ember:                        # Ember.js has its own Handlebars compilation needs,
-                                      # use this config block to provide Ember specific
-                                      # Handlebars configuration.
-        # enabled: false              # Whether or not to use the Ember Handlebars compiler
-        # path: "vendor/ember"        # location of the Ember library, this is used as
-                                      # as a dependency in the compiled templates.
-
-  ###
-  # the extensions of files to copy from sourceDir to compiledDir. vendor js/css, images, etc.
-  ###
-  # copy:
-    # extensions: ["js","css","png","jpg","jpeg","gif","html","eot","svg","ttf","woff","otf","yaml","kml","ico","htc","htm","json","txt","xml","xsd","map","md"]	
+	
 
   # growl:
     # onStartup: false       # Controls whether or not to Growl when assets successfully
@@ -198,6 +109,8 @@ exports.config = {
     # path: 'server.coffee'      # valid when defaultServer.enabled: false, path to file for provided
                                  # server which must contain export startServer method that takes
                                  # an enriched mimosa-config object
+    # packageJSONDir: null       # If using own server, not default server, this is the location of
+                                 # project's package.json. Defaults to location of mimosa-config.
     # port: 3000                 # port to start server on
     # base: ''                   # base of url for the app, if altered should start with a slash
     # views:                     # configuration for the view layer of your application
@@ -207,16 +120,26 @@ exports.config = {
       # path: 'views'            # This is the path to project views, it can be absolute or
                                  # relative. If defaultServer.enabled is true, it is relative to the
                                  # root of the project. If defaultServer.enabled is false it is
-                                 # relative to the server.path setting above.	
+                                 # relative to the server.path setting above.
 
-  # minify:                     # Configuration for non-require minification/compression via
-                                # uglify using the --minify flag.
-    # exclude:[/\.min\./]       # List of string paths and regexes to match files to exclude
-                                # when running minification. Any path with ".min." in its name,
-                                # like jquery.min.js, is assumed to already be minified and is
-                                # ignored by default. Paths can be relative to the
-                                # watch.compiledDir, or absolute.  Paths are to compiled files,
-                                # so '.js' rather than '.coffee'
+  # minifyJS:                     # Configuration for minifying/cleaning js using the
+                                  # --minify flag
+    # exclude:[/\.min\./]         # List of string paths and regexes to match files to exclude
+                                  # when running minification. Any path with ".min." in its name,
+                                  # is assumed to already be minified and is ignored by default.
+                                  # Paths can be relative to the watch.compiledDir, or absolute. 
+                                  # Paths are to compiled files,  so '.js' rather than '.coffee'
+
+
+  # minifyCSS:                    # Configuration for minifying/cleaning css using the
+                                  # --minify flag
+    # exclude:[/\.min\./]         # List of string paths and regexes to match files to exclude
+                                  # when running minification. Any path with ".min." in its name,
+                                  # is assumed to already be minified and is ignored by default.
+                                  # Paths can be relative to the watch.compiledDir, or absolute. 
+                                  # Paths are to compiled files,  so '.css' rather than '.styl'
+
+
   # jshint:                    # settings for javascript hinting
     # exclude:[]               # array of strings or regexes that match files to not jshint,
                                # strings are paths that can be relative to the watch.sourceDir
@@ -258,10 +181,10 @@ exports.config = {
                              # being considered a root level file to be optimized.
     # commonConfig: "common" # The path from 'javascriptDir' to the location of common requirejs
                              # config. This is config shared across multiple requirejs modules.
-                             # This should be either a require.config({}) or a requirejs.config({}) function call.
-                             # Defaults to the value `common` - referring to a file named common.js in the root of javascriptDir.
-                             # Does not need to exist, so can be left alone if a commonConfig is not
-                             # being used.
+                             # This should be either a require.config({}) or a requirejs.config({})
+                             # function call. Defaults to the value `common` - referring to a file
+                             # named common.js in the root of javascriptDir. Does not need to
+                             #  exist, so can be left alone if a commonConfig is not being used.
     # tracking:              # every time mimosa starts up, mimosa-require needs to be able to
                              # build a dependency graph for the codebase. It can do that by
                              # processing all the files, but that means each file needs to be
@@ -297,6 +220,16 @@ exports.config = {
                              # overrides can also be a function that takes mimosa-require's
                              # inferred config for each module. This allows the inferred config
                              # to be updated and enhanced instead of just overridden.	
+
+  ###
+  # the extensions of files to copy from sourceDir to compiledDir. vendor js/css, images, etc.
+  ###
+  # copy:              # config settings for the coffeescript compiler module
+    # extensions: ["js","css","png","jpg","jpeg","gif","html","eot","svg","ttf","woff","otf","yaml","kml","ico","htc","htm","json","txt","xml","xsd","map","md","mp4"]
+    # exclude: []      # List of regexes or strings to match files that should not be copied
+                       # but that you might still want processed. String paths can be absolute
+                       # or relative to the watch.sourceDir. Regexes are applied to the entire path.
+	
 
   # bower:                  # Configuration for bower module
     # bowerDir:
@@ -362,6 +295,17 @@ exports.config = {
                                   # to this based on your experience!
 	
 
+  # coffeescript:              # config settings for the coffeescript compiler module
+    # lib: undefined           # use this property to provide a specific version of CoffeeScript
+    # extensions: ["coffee", "litcoffee"]  # default extensions for CoffeeScript files
+    # sourceMapDynamic: true   # whether or not to inline the source maps in the compiled JavaScript
+    # sourceMapExclude: [/\/specs?\//, /_spec.js$/] # files to exclude from source map generation
+    # sourceMapConditional: false # whether or not to use conditional source maps
+    # options:                 # options for the CoffeeScript compiler
+      # sourceMap:true         # whether or not to create source maps
+      # bare:true              # whether or not to use the default safety wrapper
+	
+
   # libraryPackage:           # Configuration for library packaging module
     ###
     # "packaging" provides three options for packaging your library. By default all are enabled.
@@ -407,7 +351,19 @@ exports.config = {
                               # expect users of the library to include themselves.
 	
 
+  # stylus:                  # config settings for the Stylus compiler module
+    # lib: undefined         # use this property to provide a specific version of Stylus
+    # extensions: ["styl"]   # default extensions for Stylus files
+    # use:['nib']            # names of libraries to use, should match the npm name for
+                             # the desired libraries
+    # import:['nib']         # Files to import for compilation
+    # define: {}             # An object containing stylus variable defines
+    # includes: []           # Files to include for compilation
+	
+
   # testemRequire:                  # Configuration for the testem-require module
+    # executeDuringBuild            # If true the tests will get executed during build.
+    # executeDuringWatch            # If true the tests will get executed during watch with each file change.
     # specConvention: /[_-](spec|test).js$/ # Convention for how test specs are named
     # assetFolder: ".mimosa/testemRequire"        # Path from the root of the project to the folder that will
                                     # contain all the testing assets that the testemRequire

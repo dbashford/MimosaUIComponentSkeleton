@@ -1,9 +1,9 @@
 window.MIMOSA_TEST_REQUIRE_CONFIG = {
+  "baseUrl": "/js",
   "paths": {
     "jquery": "vendor/jquery/jquery",
     "lib": "libname"
-  },
-  "baseUrl": "/js"
+  }
 };
 window.MIMOSA_TEST_MOCHA_SETUP = {
   "ui": "bdd",
